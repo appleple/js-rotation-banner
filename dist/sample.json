@@ -1,0 +1,98 @@
+[
+    {
+        "banner": "./images/banner1.jpg",
+        "url": "https://www.a-blogcms.jp/",
+        "tag": ""
+    },
+    {
+        "banner": "./images/banner2.jpg",
+        "url": "https://www.a-blogcms.jp/",
+        "tag": ""
+    },
+    {
+        "banner": "./images/banner3.jpg",
+        "url": "https://www.a-blogcms.jp/",
+        "tag": ""
+    },
+    {
+        "banner": "./images/banner4.jpg",
+        "url": "https://www.a-blogcms.jp/",
+        "tag": ""
+    },
+    {
+        "banner": "",
+        "url": "",
+        "tag": "<a href='https://www.a-blogcms.jp/'><img src='./images/banner5.jpg'></a>"
+    },
+    {
+        "banner": "./images/banner6.jpg",
+        "url": "https://www.a-blogcms.jp/",
+        "tag": ""
+    },
+    {
+        "banner": "./images/banner7.jpg",
+        "url": "https://www.a-blogcms.jp/",
+        "tag": ""
+    }
+]
+
+
+
+{
+    "banner": [
+        {
+            "banner#img": {
+                "target": "_self",
+                "attr1": "",
+                "attr2": "",
+                "alt": "Parallels Desktop\u300cWindows \u304c Mac \u3067\u52d5\u304d\u307e\u3059\u300d",
+                "mid": "29",
+                "nth": 0,
+                "banner:loop.class": "",
+                "url": "https:\/\/www.parallels.com\/jp\/pd\/windows-on-mac\/",
+                "x": "468",
+                "y": "60",
+                "img": "001\/202205\/Parallels17.jpg",
+                "caption": "",
+                "text": ""
+            },
+            "banner:loop.class": ""
+        },
+        {
+            "banner#img": {
+                "target": "_self",
+                "attr1": "",
+                "attr2": "",
+                "alt": "jamf : Apple\u88fd\u54c1\u7ba1\u7406\u306e\u30c7\u30d5\u30a1\u30af\u30c8\u30b9\u30bf\u30f3\u30c0\u30fc\u30c9",
+                "mid": "30",
+                "nth": 1,
+                "banner:loop.class": "",
+                "url": "https:\/\/www.jamf.com\/ja\/lp\/jamf-pro-formerly-casper-suite-mac-management-software\/",
+                "x": "468",
+                "y": "60",
+                "img": "001\/202205\/Jamf_banner2021.jpg",
+                "caption": "",
+                "text": ""
+            },
+            "banner:loop.class": ""
+        },
+        {
+            "banner#img": {
+                "target": "_self",
+                "attr1": "",
+                "attr2": "",
+                "alt": "c smart",
+                "mid": "28",
+                "nth": 2,
+                "banner:loop.class": "",
+                "url": "https:\/\/c-smart.jp\/",
+                "x": "468",
+                "y": "63",
+                "img": "001\/202205\/Csmart2022.jpg",
+                "caption": "",
+                "text": ""
+            },
+            "banner:loop.class": ""
+        }
+    ]
+}

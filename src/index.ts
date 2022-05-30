@@ -116,7 +116,7 @@ class RotationBanner {
 // window.onload = () => {
 //     const Banner = new RotationBanner("https://mac.appleple.jp/media/");
 //     axios.get("https://mac.appleple.jp/blog/api/rotation-banner/", {
-//         headers: { 'X-API-KEY': 'f7750557-844a-4fde-856c-f6edab889541' },
+//         headers: { 'X-API-KEY': 'APIKEY' },
 //     }).then((response) => {
 //         const BannerInfos: Array<BannerInfo> = response.data.banner;
 //         console.log(response.data.banner)

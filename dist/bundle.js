@@ -2529,7 +2529,7 @@ const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules
 window.onload = () => {
     //ここの取得方法を変えなきゃいけない
     axios_1.default.get("https://mac.appleple.jp/blog/api/rotation-banner/", {
-        headers: { 'X-API-KEY': '097ab43a-7cef-46fc-a668-2212732de80b ' },
+        headers: { 'X-API-KEY': 'APIKEY' },
     }).then((response) => { console.log(response); })
         .catch((error) => { console.log(error); })
         .finally(() => { });

@@ -1,6 +1,12 @@
 import axios from "axios"
 console.log(process.env.API_KEY);
 
+type Config = {
+    url?: string,
+    aTagclass?: string,
+    rel?: string,
+}
+
 type BannerInfo = {
     "banner#img"?: {
         "alt"?: string,
@@ -25,10 +31,16 @@ type BannerInfo = {
     "banner:loop.class"?: string,
 }
 
+const defaults: Config = {
+    aTagclass: "banner",
+  }
+
 class RotationBanner {
-    url: string;
-    constructor(url: string) {
-        this.url = url;
+    settings: Config;
+    data: Config;
+    constructor(settings: { url: string, aTagclass: string, rel?: string }) {
+        this.settings = settings;
+        this.data = Object.assign({},defaults,settings);
         this.AxiosBannerInfo();
     }
     GeneratingSortedArray(BannerInfos: Array<BannerInfo>, dataOffSet: number, dataId: number) {
@@ -46,43 +58,32 @@ class RotationBanner {
         return copyBannerInfoArrays;
     }
     GeneratingIdealDomHierarchy(copyBannerInfoArrays: Array<BannerInfo>) {
-        const table: HTMLElement = document.createElement("table");
-        table.setAttribute("width", "85%");
-        table.setAttribute("border", "0")
-        table.setAttribute("cellspacing", "0");
-        table.setAttribute("cellpadding", "0");
-        const tbody: HTMLElement = document.createElement("tbody");
-        const tr: HTMLElement = document.createElement("tr");
-        tbody.appendChild(tr);
-        const td: HTMLElement = document.createElement("td");
-        td.setAttribute("align", "CENTER");
-        td.setAttribute("valign", "TOP");
-        td.setAttribute("width", "100%");
-        tr.appendChild(td);
-        const hr = document.createElement("hr");
-        td.appendChild(hr);
+        const ul: HTMLElement = document.createElement("ul");
+        ul.classList.add(this.data.aTagclass || "")
+        const li: HTMLElement = document.createElement("li");
         if (copyBannerInfoArrays[0]['banner#src'] !== undefined) {
             //JSONのデータにtagがあるとき、そのままタグを使う。
             if (copyBannerInfoArrays[0]['banner#src'].src !== "") {
-                td.innerHTML += copyBannerInfoArrays[0]['banner#src'].src;
+                li.innerHTML += copyBannerInfoArrays[0]['banner#src'].src;
             }
         } else {
             //JSONのデータによってtagが無いとき、aタグとimgタグを一から作る
             const a: HTMLElement = document.createElement("a");
             if (copyBannerInfoArrays[0]['banner#img'] !== undefined) {
                 a.setAttribute("href", copyBannerInfoArrays[0]['banner#img'].url)
-                td.appendChild(a);
+                a.setAttribute("rel", this.data.rel || "")
+                li.appendChild(a);
                 const img: HTMLElement = document.createElement("img");
-                img.setAttribute("src", `${this.url}${copyBannerInfoArrays[0]['banner#img'].img}`);
+                img.setAttribute("src", `${this.data.url}${copyBannerInfoArrays[0]['banner#img'].img}`);
                 a.appendChild(img)
             }
         }
-        table.appendChild(tbody);
-        return table;
+        ul.appendChild(li);
+        return ul;
     }
-    AxiosBannerInfo () {
+    AxiosBannerInfo() {
         axios.get("https://mac.appleple.jp/blog/api/rotation-banner/", {
-            headers: { 'X-API-KEY': process.env.API_KEY || ""},
+            headers: { 'X-API-KEY': process.env.API_KEY || "" },
         }).then((response) => {
             const BannerInfos: Array<BannerInfo> = response.data.banner;
             this.PerseBannerArray(BannerInfos)
@@ -90,7 +91,7 @@ class RotationBanner {
             .catch((error) => { console.log(error); })
             .finally(() => { })
     }
-    PerseBannerArray (BannerInfos:Array<BannerInfo>) {
+    PerseBannerArray(BannerInfos: Array<BannerInfo>) {
         //指定DOM取得
         const jsRotationBannerElements: Element[] = Array.from(document.getElementsByClassName("js-rotation-banner"));
         //指定DOM分ループで処理
@@ -105,8 +106,8 @@ class RotationBanner {
             //何個表示させるかの値をつかってループする。(理想DOM生成)
             for (let i = 0; i < displayIsNumber; i++) {
                 //生成されたDOMを代入
-                const table: HTMLElement = this.GeneratingIdealDomHierarchy(copyBannerInfoArrays);
-                element.appendChild(table);
+                const ul: HTMLElement = this.GeneratingIdealDomHierarchy(copyBannerInfoArrays);
+                element.appendChild(ul);
                 //配列の要素を一つずらして次のループを正常に行えるようにする。
                 copyBannerInfoArrays.push(copyBannerInfoArrays[0]);
                 copyBannerInfoArrays.shift();

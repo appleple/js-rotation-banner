@@ -149,5 +149,43 @@ class RotationBanner {
     }
 }
 
+<<<<<<< HEAD
+=======
+// window.onload = () => {
+//     const Banner = new RotationBanner("https://mac.appleple.jp/media/");
+//     axios.get("https://mac.appleple.jp/blog/api/rotation-banner/", {
+//         headers: { 'X-API-KEY': 'APIKEY' },
+//     }).then((response) => {
+//         const BannerInfos: Array<BannerInfo> = response.data.banner;
+//         console.log(response.data.banner)
+//         //指定DOM取得
+//         const jsRotationBannerElements: Element[] = Array.from(document.getElementsByClassName("js-rotation-banner"));
+//         //指定DOM分ループで処理
+//         jsRotationBannerElements.forEach((element: Element) => {
+//             //何個表示させるかの値取得
+//             const displayIsNumber: number = Number(element.getAttribute("data-quantity"));
+//             //JSONの順番を入れ替えて表示するbannerを入れ替える
+//             const dataOffSet: number = Number(element.getAttribute("data-offset"));
+//             const dataId: number = Number(element.getAttribute("data-id"));
+//             //入れ替えられたJSONを取得
+//             let copyBannerInfoArrays = Banner.GeneratingSortedArray(BannerInfos, dataOffSet, dataId);
+//             //何個表示させるかの値をつかってループする。(理想DOM生成)
+//             for (let i = 0; i < displayIsNumber; i++) {
+//                 //生成されたDOMを代入
+//                 const table: HTMLElement = Banner.GeneratingIdealDomHierarchy(copyBannerInfoArrays);
+//                 element.appendChild(table);
+//                 //配列の要素を一つずらして次のループを正常に行えるようにする。
+//                 copyBannerInfoArrays.push(copyBannerInfoArrays[0]);
+//                 copyBannerInfoArrays.shift();
+//             }
+//             //コピー配列を初期化
+//             copyBannerInfoArrays = [];
+//         })
+//     })
+//         .catch((error) => { console.log(error); })
+//         .finally(() => { })
+// }
+
+>>>>>>> origin/master
 window.RotationBanner = RotationBanner;
 export default RotationBanner;

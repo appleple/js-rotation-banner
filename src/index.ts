@@ -1,5 +1,4 @@
 import axios from "axios"
-console.log(process.env.API_KEY);
 
 type Config = {
     url?: string,
@@ -49,7 +48,6 @@ class RotationBanner {
         //日付と表示番号の合計値から配列を理想の形に入れ替える
         if (dataId || dataOffSet) {
             const arrayOrderChangeNumber = (dataId + dataOffSet) * 3;
-            console.log(arrayOrderChangeNumber)
             for (let i = 0; i < arrayOrderChangeNumber; i++) {
                 copyBannerInfoArrays.push(copyBannerInfoArrays[0]);
                 copyBannerInfoArrays.shift();

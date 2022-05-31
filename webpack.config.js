@@ -2,11 +2,11 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: {
-        bundle: "./src/index.ts",
+        'rotation-banner.bundle': "./src/index.ts",
     },
     output: {
         path: `${__dirname}/dist`,
-        filename: "bundle.js",
+        filename: "[name].js",
     },
     mode: "development",
     resolve: {

@@ -1,3 +1,5 @@
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
     entry: {
         bundle: "./src/index.ts",
@@ -8,8 +10,12 @@ module.exports = {
     },
     mode: "development",
     resolve: {
-        extensions: [".ts",".js"],
+        extensions: [".ts", ".js"],
     },
+    plugins: [
+        // other plugins...
+        new Dotenv(), // ←ここを追加
+    ],
     devServer: {
         static: {
             directory: `${__dirname}/dist`,
@@ -23,5 +29,5 @@ module.exports = {
                 loader: "ts-loader"
             }
         ]
-    }
+    },
 }

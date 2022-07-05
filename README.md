@@ -12,7 +12,7 @@ distの中にあるrotation-banner.bundle.js,rotationbanner.cssを使用した�
 ```html
 <link rel="stylesheet" href="/path/to/js/rotationbanner.css">
 ```
-photocollage.js
+cfg-csv.js
 ```js
 document.addEventListener("DOMContentLoaded",  () => {
     new RotationBanner({
@@ -34,6 +34,11 @@ document.addEventListener("DOMContentLoaded",  () => {
 <p>サンプルです</p>
 <div class="js-rotation-banner" data-quantity="3" data-offset="1" data-id="3"></div>
 ```
+
+### Attribute
+data-quantity → 表示させる枚数
+data-offset → 指定した日付によってバナーを並び替える
+data-id → 並び替える数字を指定
 
 ### Option
 

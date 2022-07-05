@@ -4,6 +4,7 @@ type Config = {
     url?: string,
     aTagclass?: string,
     rel?: string,
+    loading?: string,
 }
 
 type BannerInfo = {
@@ -32,12 +33,13 @@ type BannerInfo = {
 
 const defaults: Config = {
     aTagclass: "banner",
+    loading: "lazy",
   }
 
 class RotationBanner {
     settings: Config;
     data: Config;
-    constructor(settings: { url: string, aTagclass: string, rel?: string }) {
+    constructor(settings: { url: string, aTagclass: string, rel?: string, loading?: string}) {
         this.settings = settings;
         this.data = Object.assign({},defaults,settings);
         this.AxiosBannerInfo();
@@ -73,6 +75,7 @@ class RotationBanner {
                 li.appendChild(a);
                 const img: HTMLElement = document.createElement("img");
                 img.setAttribute("src", `${this.data.url}${copyBannerInfoArrays[0]['banner#img'].img}`);
+                img.setAttribute("loading",this.data.loading || "");
                 a.appendChild(img)
             }
         }

@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded",  () => {
 ```
 
 ### Attribute
-data-quantity → 表示させる枚数
-data-offset → 指定した日付によってバナーを並び替える
-data-id → 並び替える数字を指定
+data-quantity → 表示させる枚数</br>
+data-offset → 指定した日付によってバナーを並び替える</br>
+data-id → 並び替える数字を指定</br>
 
 ### Option
 
